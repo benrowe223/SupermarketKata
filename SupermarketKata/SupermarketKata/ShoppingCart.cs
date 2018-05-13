@@ -1,37 +1,55 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SupermarketKata
 {
-   public class ShoppingCart
+    public class ShoppingCart
     {
-        private double _totalPrice;
+        private int[] _bookTypeCount = new int[4];
+
+        List<char> _cart = new List<char>();
+
+        private int _totalPrice;
+
+
         public double TotalPrice
         {
             get
             {
-                if (totalBookOne >=1 && totalBookTwo >= 1)
+
+                if (_cart.Distinct().Count() == 3)
+                {
+                    return _totalPrice * 0.9;
+                }
+                if (_cart.Distinct().Count() == 2)
                 {
                     return _totalPrice * 0.95;
                 }
+
                 return _totalPrice;
             }
         }
 
-        public int totalBookOne;
-        public int totalBookTwo;
 
         public void AddBook1()
         {
-            totalBookOne++;
+            _cart.Add('A');
             _totalPrice += 8;
         }
 
         public void AddBook2()
         {
-            totalBookTwo++;
+            _cart.Add('B');
             _totalPrice += 8;
         }
+
+        public void AddBook3()
+        {
+            _cart.Add('C');
+            _totalPrice += 8;
+        }
+
     }
 }

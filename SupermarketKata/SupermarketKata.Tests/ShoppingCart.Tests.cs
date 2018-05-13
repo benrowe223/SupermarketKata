@@ -47,6 +47,18 @@ namespace SupermarketKata.Tests
             Assert.IsTrue(shoppingCart.TotalPrice == 15.2);
         }
 
+        [TestMethod]
+        public void PurchaseBook_ThreeBookTypes_CorrectTotalPriceWithTenPercentDiscount()
+        {
+            ShoppingCart shoppingCart = new ShoppingCart();
+
+            shoppingCart.AddBook1();
+            shoppingCart.AddBook2();
+            shoppingCart.AddBook3();
+
+            Assert.IsTrue(shoppingCart.TotalPrice == 21.6);
+        }
+
 
     }
 }
