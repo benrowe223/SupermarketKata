@@ -59,6 +59,33 @@ namespace SupermarketKata.Tests
             Assert.IsTrue(shoppingCart.TotalPrice == 21.6);
         }
 
+        [TestMethod]
+        public void PurchaseBook_FourDifferentBooks_CorrectTotalPriceWithTwentyPercentDiscount()
+        {
+            ShoppingCart shoppingCart = new ShoppingCart();
+
+            shoppingCart.AddBook1();
+            shoppingCart.AddBook2();
+            shoppingCart.AddBook3();
+            shoppingCart.AddBook4();
+
+            Assert.IsTrue(shoppingCart.TotalPrice == 25.6);
+        }
+
+        [TestMethod]
+        public void PurchaseBook_FiveDifferentBooks_CorrectTotalPriceWithTwentyFivePercentDiscount()
+        {
+            ShoppingCart shoppingCart = new ShoppingCart();
+
+            shoppingCart.AddBook1();
+            shoppingCart.AddBook2();
+            shoppingCart.AddBook3();
+            shoppingCart.AddBook4();
+            shoppingCart.AddBook5();
+
+            Assert.IsTrue(shoppingCart.TotalPrice == 30);
+        }
+
 
     }
 }
